@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+        <style type="text/css">
+		#fh5co-offcanvas {
+    width: auto;
+}
+#fh5co-offcanvas .fh5co-menu, #fh5co-offcanvas .fh5co-bio {
+    width: auto;
+    padding: 50px;
+}
+	</style>
+{% endblock style %}
+{% block content %}
+
+<div class="container">
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+</div>
+
+ {% endblock content %}
+
